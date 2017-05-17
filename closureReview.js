@@ -10,9 +10,12 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //code here
+function answer(number){
+  var myFriend = callFriend(number);
+  return myFriend(number);
+}
 
-
-
+answer('435-215-9248');
 /*
 
 Write a function that accepts a function as it's first argument and returns a new function (which calls the original function that was passed in) that can only ever be executed once.
@@ -20,3 +23,17 @@ Write a function that accepts a function as it's first argument and returns a ne
 Once completed, add a second arguments that allows the function to be executed N number of times. After the function has been called N number of times, console.log('STAHHP');
 
 */
+function printSomething(str){
+  return str;
+}
+
+
+function someFn(anyFn, value){
+  var counter = 0;
+  function someNewFn(){ return "Heya!!!!"}
+  while (counter < value){
+    someNewFn();
+    counter++;
+  }
+  return console.log("STAHHP!!!!" + counter);
+}
