@@ -54,10 +54,11 @@ function randomStuff(randomNum, arr){
 
 //Create a copy of first and save it into second. Then, add 6 and 7 to the end of second. When you run this, first should be just [1,2,3,4,5] and second will be [1,2,3,4,5,6,7] if you created your copy correctly.
 var first = [1,2,3,4,5];
-var second;
+var second = first;
 
   //code here
-
+second.push(6);
+second.push(7);
 alert(first) //[1,2,3,4,5];
 alert(second) //[1,2,3,4,5,6,7];
 
@@ -71,7 +72,23 @@ alert(second) //[1,2,3,4,5,6,7];
 var sentence = "Dev Mountain is the best"
 
   //code here
-
+function longest(sentence){ 
+  var wordLength = 0;
+  var senArray = sen.split(" ");
+  var answer;
+  for (var i = 0; i < senArray.length; i++){
+    if (senArray[i].length > wordLength){
+      wordLength = senArray[i].length;
+    }
+  }
+  for (var j = 0; j < senArray.length; j++){
+    if (senArray[j].length == wordLength){
+      answer = senArray[j];
+    }
+  }
+  
+  return answer;       
+}
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -82,7 +99,9 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
   //code here
-
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
@@ -91,3 +110,24 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 //Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+function vowelCounter(str){
+  var counter = 0;
+  for (var i = 0; i < str.length; i++){
+    if (str.charAt(i) == "a"){
+      counter++;
+    }
+    if (str.charAt(i) == "e"){
+      counter++;
+    }
+    if (str.charAt(i) == "i"){
+      counter++;
+    }
+    if (str.charAt(i) == "o"){
+      counter++;
+    }
+    if (str.charAt(i) == "u"){
+      counter++;
+    }
+  }
+  return counter;
+}
