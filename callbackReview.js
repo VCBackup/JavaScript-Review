@@ -1,6 +1,8 @@
 /* Declare and Define the functions here that will make the function calls below work properly */
 
-
+var first = function(arr, callback){
+  return callback(arr[0]);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -12,7 +14,10 @@ first(names, function(firstName){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+var last = function(arr, callback){
+  var someVar = arr.length -1;
+  return callback(arr[someVar]);
+};
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -26,7 +31,14 @@ last(names, function(lastName){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 //have the contains function return a boolean value for if the name is in the array or not.
-
+var contains = function(value, arr, callback){
+for (var i = 0; i < arr.length; i++){
+  if (arr[i] == value){
+    return callback(true);
+  }
+}
+return callback(false);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains('Colt', names, function(yes){
@@ -42,7 +54,9 @@ contains('Colt', names, function(yes){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+var map = function(arr, value, callback){
+  return callback(value * 2);
+};
 
 
 var numbers = [1,2,3,4,5];
@@ -56,10 +70,21 @@ map(numbers, function(num){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
+var uniq = function(arr, callback){
+  var answer = [];
+  var whileValue = 0;
+  while (whileValue < 10){
+    for (var i = 0; i < arr.length; i++){
+      if(arr.indexOf(arr[i]) != arr.lastIndexOf(arr[i])){
+        answer = answer.concat(arr.splice(i, 1));
+        i--;
+      }
+  }
+  whileValue++; 
+  }
+  return callback(arr);
+};
 
-
-
-var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
@@ -69,7 +94,11 @@ uniq(names, function(uniqArr){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+var each = function(arr, callback){
+  for (var i = 0; i < arr.length; i++){
+  callback(arr[i], i);
+  }
+};
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -82,7 +111,13 @@ each(names, function(item, indice){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+var getUserById = function(arr, id, callback){
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i].id == id){
+      return callback(arr[i]);
+    }
+  }
+};
 
 
 var users = [
@@ -114,7 +149,13 @@ getUserById('16t', users, function(user){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+var find = (arr, value, callback)=>{
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i] == value){
+      return callback(value);
+    }
+  }
+};
 
 
 //Looks through each value in the list, returning the first one that passes a truth test 
